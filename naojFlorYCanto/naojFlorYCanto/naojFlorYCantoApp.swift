@@ -10,6 +10,8 @@ import SwiftData
 
 @main
 struct naojFlorYCantoApp: App {
+    @StateObject var viewModel = LibraryViewModel()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -26,6 +28,7 @@ struct naojFlorYCantoApp: App {
     var body: some Scene {
         WindowGroup {
             crearCuenta()
+                .environmentObject(viewModel)
         }
         .modelContainer(sharedModelContainer)
     }
